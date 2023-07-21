@@ -13,14 +13,6 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  --use({
-	--  'rose-pine/neovim',
-	--  as = 'rose-pine',
-	--  config = function()
-	--	  vim.cmd('colorscheme rose-pine')
-	--  end
-  --})
-
   use({
 	  'folke/tokyonight.nvim',
 	  as = 'tokyonight',
@@ -80,6 +72,18 @@ return require('packer').startup(function(use)
 
   use("folke/zen-mode.nvim")
   use("eandrju/cellular-automaton.nvim")
+  use {
+    "nvim-neorg/neorg",
+    run = ":Neorg sync-parsers", -- This is the important bit!
+    config = function()
+      require("neorg").setup {
+        load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = {}
+        }
+      }
+    end,
+}
   --use("laytan/cloak.nvim")
 
 end)
