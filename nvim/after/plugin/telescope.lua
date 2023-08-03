@@ -2,7 +2,7 @@ local telescope = require('telescope')
   telescope.setup{
     pickers = {
       find_files = {
-        find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
+        find_command = {'rg', '--files', '--hidden', '-g', '!.git', '--ignore-file', '$HOME/.config/nvim/after/plugin/.rgignore'},
       }
   }
 }
