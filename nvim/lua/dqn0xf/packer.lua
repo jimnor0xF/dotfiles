@@ -6,14 +6,16 @@ vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
   use 'airblade/vim-gitgutter'
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-
   use({
 	  'folke/tokyonight.nvim',
 	  as = 'tokyonight',
@@ -21,7 +23,6 @@ return require('packer').startup(function(use)
 		  vim.cmd('colorscheme tokyonight-night')
 	  end
   })
-
   use {'github/copilot.vim', branch = 'release' }
   use({
       "folke/trouble.nvim",
