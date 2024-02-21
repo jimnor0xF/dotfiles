@@ -1,9 +1,4 @@
-### Jimmy's init.lua
-Prerequisite: install [ripgrep](https://github.com/BurntSushi/ripgrep).
+# 💤 LazyVim
 
-### Install
-<pre>
-nvim lua/dqn0xf/packer.lua
-:so
-:PackerSync
-</pre>
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
