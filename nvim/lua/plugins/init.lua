@@ -27,4 +27,23 @@ return {
       { "<leader>cu", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree" },
     },
   },
+  -- rust-analyzer
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              procMacro = {
+                enable = false,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 }
