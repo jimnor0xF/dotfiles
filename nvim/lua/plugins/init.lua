@@ -24,21 +24,41 @@ return {
     lazy = false,
     config = false,
     keys = {
-      { "<leader>cu", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree" },
+      { "<leader>hu", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree" },
     },
   },
-  -- rust-analyzer
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      autoformat = false,
       servers = {
+        eslint = {
+          settings = {
+            useFlatConfig = true, -- set if using flat config
+            experimental = {
+              useFlatConfig = nil, -- option not in the latest eslint-lsp
+            },
+          },
+        },
         rust_analyzer = {
+          mason = false,
+          -- cmd = { vim.fn.expand("~/.rustup/toolchains/nightly-x87_64-unknown-linux-gnu/bin/rust-analyzer") },
+          cmd = { vim.fn.expand("~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer") },
           settings = {
             ["rust-analyzer"] = {
+              imports = {
+                granularity = {
+                  group = "module",
+                },
+                prefix = "self",
+              },
+              cargo = {
+                buildScripts = {
+                  enable = true,
+                },
+              },
               procMacro = {
-                enable = false,
+                enable = true,
               },
             },
           },
